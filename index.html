@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creative Conquest — Business in a Box</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1B2A41; --sage:#A8B5A2; --ivory:#F5F1EA; --gold:#C2A878;
+    --navy-soft:#243650; --line:rgba(27,42,65,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Montserrat',sans-serif;background:var(--ivory);color:var(--navy);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 0 60px;}
+  .serif{font-family:'Cormorant Garamond',serif;}
+
+  header{background:var(--navy);color:var(--ivory);padding:54px 56px 46px;}
+  .brandmark{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:600;letter-spacing:.5px;}
+  .tag{color:var(--gold);font-size:12px;letter-spacing:3px;text-transform:uppercase;margin-top:8px;}
+  .sub{color:var(--sage);font-size:16px;margin-top:18px;max-width:620px;font-weight:300;}
+  .kicker{display:inline-block;border:1px solid var(--gold);color:var(--gold);font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:2px;margin-bottom:26px;}
+
+  section{padding:0 56px;}
+  .sec-title{font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:600;color:var(--navy);margin:48px 0 6px;}
+  .sec-note{color:var(--sage);font-size:13px;letter-spacing:1px;text-transform:uppercase;margin-bottom:22px;font-weight:500;}
+  .sage-dark{color:#5d6b57;}
+
+  .numbers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .num{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px;}
+  .num .big{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:var(--navy);line-height:1;}
+  .num .lab{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-top:10px;font-weight:600;}
+  .num .desc{font-size:13px;color:#5d6b57;margin-top:6px;}
+
+  .arsenal{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px 26px;position:relative;}
+  .card .no{font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--gold);font-weight:600;letter-spacing:1px;}
+  .card h3{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;margin:4px 0 10px;color:var(--navy);}
+  .card p{font-size:14px;color:#3a4656;}
+  .card .ico{position:absolute;top:24px;right:26px;width:34px;height:34px;border-radius:8px;background:var(--ivory);display:flex;align-items:center;justify-content:center;color:var(--navy);}
+
+  .offer{background:var(--navy);border-radius:14px;padding:34px 38px;color:var(--ivory);margin-top:8px;}
+  .offer .row{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:18px;}
+  .offer .stack{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--sage);}
+  .offer .strike{text-decoration:line-through;opacity:.6;}
+  .offer .price{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:700;color:var(--gold);line-height:1;}
+  .offer .price small{display:block;font-family:'Montserrat';font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--sage);margin-top:6px;font-weight:500;}
+  .offer hr{border:none;border-top:1px solid rgba(168,181,162,.25);margin:22px 0;}
+  .mathline{font-size:15px;color:var(--ivory);font-weight:300;}
+  .mathline b{color:#fff;font-weight:600;}
+
+  .road{position:relative;padding-left:8px;}
+  .step{display:flex;gap:18px;padding-bottom:20px;}
+  .step:last-child{padding-bottom:0;}
+  .dot{flex:none;width:14px;height:14px;border-radius:50%;background:var(--gold);margin-top:5px;position:relative;}
+  .step:not(:last-child) .dot::after{content:"";position:absolute;left:50%;top:14px;transform:translateX(-50%);width:2px;height:calc(100% + 6px);background:var(--sage);}
+  .step .wk{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  .step .txt{font-size:14px;color:#3a4656;}
+  .step .txt b{color:var(--navy);}
+
+  .estep{display:flex;align-items:flex-start;gap:12px;font-size:13.5px;color:var(--sage);font-weight:300;}
+  .estep b{color:var(--ivory);font-weight:500;}
+  .enum{flex:none;width:26px;height:26px;border-radius:50%;border:1px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;}
+
+  .cta{background:var(--gold);color:var(--navy);border-radius:14px;padding:34px 38px;margin-top:30px;text-align:center;}
+  .cta .h{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;}
+  .cta .p{font-size:15px;margin-top:10px;color:#5a4a2a;}
+  .cta .badge{display:inline-block;background:var(--navy);color:var(--ivory);font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:8px 18px;border-radius:3px;margin-top:18px;font-weight:500;}
+
+  footer{padding:34px 56px 0;color:#5d6b57;font-size:12px;}
+  .foot-mantra{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--navy);}
+
+  @media(max-width:760px){
+    header{padding:40px 26px;} section{padding:0 26px;}
+    .numbers,.arsenal{grid-template-columns:1fr;} .brandmark{font-size:34px;}
+  }
+  @media print{ body{background:#fff;} .card,.num{break-inside:avoid;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="kicker">Business in a Box</span>
+    <div class="brandmark">Creative Conquest</div>
+    <div class="tag">Where focus goes, energy flows</div>
+    <p class="sub">An organic short-form video engine that drives bookings and ROI for premium med spas and high-margin service businesses — no ad spend required.</p>
+  </header>
+
+  <section>
+    <div class="sec-title">The three numbers that matter</div>
+    <div class="sec-note">Everything else is noise</div>
+    <div class="numbers">
+      <div class="num"><div class="big">20</div><div class="lab">Outreach / day</div><div class="desc">The input you control.</div></div>
+      <div class="num"><div class="big">5</div><div class="lab">Conversations / week</div><div class="desc">The leading indicator.</div></div>
+      <div class="num"><div class="big">~$8k</div><div class="lab">MRR by day 90</div><div class="desc">The scoreboard.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-title">The 6-file arsenal</div>
+    <div class="sec-note">Your complete operating system</div>
+    <div class="arsenal">
+      <div class="card"><div class="ico">★</div><div class="no">01</div><h3>Master Strategy</h3><p>The vision, your edge as a veteran one-man-band, and a 90-day roadmap to 2–3 clients.</p></div>
+      <div class="card"><div class="ico">$</div><div class="no">02</div><h3>Finance &amp; Offer</h3><p>The Grand Slam Offer — a ~$10k value stack at $3,250, the "feel stupid saying no" math, and the deposit CTA.</p></div>
+      <div class="card"><div class="ico">⚙</div><div class="no">03</div><h3>Data Engine</h3><p>A tested Python script that scores prospects on the gap you fill: premium, well-reviewed, invisible on video.</p></div>
+      <div class="card"><div class="ico">▦</div><div class="no">04</div><h3>Infrastructure</h3><p>The lean stack — phone, CapCut, Canva, Buffer, GoHighLevel, Stripe — and how the flow connects to the deposit.</p></div>
+      <div class="card"><div class="ico">✉</div><div class="no">05</div><h3>Sales Assets</h3><p>A 5-email cold sequence, DM script, the Rejuv pitch, a full call script, and objection handling.</p></div>
+      <div class="card"><div class="ico">◷</div><div class="no">06</div><h3>Ops Manual</h3><p>Martell delegation — what to offload to your VA and when, the weekly rhythm, SOPs, and your first hire.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-title">The team &amp; how we execute</div>
+    <div class="sec-note">Five seats · one standard</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;">
+      <div class="card"><div class="no">SEAT 01</div><h3>Managing Director</h3><p>The Closer — vision, sales, client relationships, and the final quality bar.</p></div>
+      <div class="card"><div class="no">SEAT 02</div><h3>Account &amp; Content Lead</h3><p>The Conductor — owns the calendar, delivery, and the monthly ROI report.</p></div>
+      <div class="card"><div class="no">SEAT 03</div><h3>Content Producer</h3><p>The Editor — turns footage into premium short-form video, on brand.</p></div>
+      <div class="card"><div class="no">SEAT 04</div><h3>Growth &amp; Outreach</h3><p>The Hunter — keeps the pipeline full and books the calls.</p></div>
+      <div class="card"><div class="no">SEAT 05</div><h3>Operations</h3><p>The Backbone — onboarding, payments, files, and SOPs.</p></div>
+    </div>
+
+    <div style="background:var(--navy);border-radius:12px;padding:30px 34px;margin-top:16px;color:var(--ivory);">
+      <div class="serif" style="font-size:21px;color:var(--ivory);margin-bottom:6px;">The execution sequence</div>
+      <div style="font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;">The whole machine, in order</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px 26px;">
+        <div class="estep"><span class="enum">1</span><span><b>Target</b> — score the A-list (data engine)</span></div>
+        <div class="estep"><span class="enum">2</span><span><b>Reach</b> — 20 outreach touches a day</span></div>
+        <div class="estep"><span class="enum">3</span><span><b>Close</b> — run the call, land the deposit</span></div>
+        <div class="estep"><span class="enum">4</span><span><b>Onboard</b> — intake, logins, film day</span></div>
+        <div class="estep"><span class="enum">5</span><span><b>Film</b> — direct the monthly shoot</span></div>
+        <div class="estep"><span class="enum">6</span><span><b>Produce</b> — 20 videos to brand standard</span></div>
+        <div class="estep"><span class="enum">7</span><span><b>Ship</b> — QA, approve, schedule</span></div>
+        <div class="estep"><span class="enum">8</span><span><b>Engage</b> — daily comments &amp; DMs</span></div>
+        <div class="estep"><span class="enum">9</span><span><b>Report</b> — ROI report + insight</span></div>
+        <div class="estep"><span class="enum">10</span><span><b>Retain &amp; raise</b> — renew, case study, raise prices</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-title">The offer</div>
+    <div class="sec-note">Built so an owner feels stupid saying no</div>
+    <div class="offer">
+      <div class="row">
+        <div class="stack">Stacked value <span class="strike">~$10,000 / mo</span></div>
+        <div class="price">$3,250<small>per month · Growth tier</small></div>
+      </div>
+      <hr>
+      <p class="mathline">One new injectable or hormone client is worth <b>$1,500–$3,000+</b> a year. At $3,250/mo the engine pays for itself at just <b>1–2 new clients a month</b>. You don't need to go viral — you need a handful of the right people to book.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-title">The 90-day roadmap</div>
+    <div class="sec-note">Execute like a special forces unit</div>
+    <div class="road">
+      <div class="step"><div class="dot"></div><div><div class="wk">Days 1–14 · Foundation</div><div class="txt"><b>VA-led, on banked hours.</b> Claim handles, brand the profiles, stand up the site, build the prospect list, lock the offer.</div></div></div>
+      <div class="step"><div class="dot"></div><div><div class="wk">Days 15–30 · First proof</div><div class="txt"><b>20 outreach touches a day.</b> Film a sample reel, book 1–2 content days, overdeliver, capture the result.</div></div></div>
+      <div class="step"><div class="dot"></div><div><div class="wk">Days 31–60 · Convert &amp; systemize</div><div class="txt"><b>Two retainers live.</b> Convert content days into monthly retainers; VA runs delivery, you run sales.</div></div></div>
+      <div class="step"><div class="dot"></div><div><div class="wk">Days 61–90 · Scale the engine</div><div class="txt"><b>Third client, higher prices.</b> Tighten the offer with a case study; make your first hire from profit.</div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="cta">
+      <div class="h">Reserve your build — $1,500 deposit</div>
+      <div class="p">Locks your content day, onboarding slot, and launch pricing. No free holds — money secures the spot.</div>
+      <div class="badge">Only 3 new med-spa clients per month</div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="foot-mantra">"Where focus goes, energy flows."</p>
+    <p style="margin-top:8px;">Creative Conquest · Business in a Box · Files 01–06. Pricing reflects 2026 med-spa market rates. Guarantee is satisfaction-based, not an income promise.</p>
+  </footer>
+
+</div>
+</body>
+</html>
