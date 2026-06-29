@@ -1,0 +1,4 @@
+[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1,fps=30,drawbox=x=0:y=150:w=iw:h=190:color=black@0.45:t=fill:enable='lt(t,2.8)',drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf:text='This is wearable art.':fontcolor=white:fontsize=78:x=(w-text_w)/2:y=205:shadowcolor=black:shadowx=3:shadowy=3:enable='lt(t,2.8)'[v0];
+[1:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1,fps=30,trim=duration=9.17,setpts=PTS-STARTPTS,fade=t=in:st=0:d=0.4[v1];
+[v0][v1]concat=n=2:v=1:a=0,fade=t=out:st=13.8:d=0.41[v];
+[2:a]afade=t=out:st=13.8:d=0.41[a]
